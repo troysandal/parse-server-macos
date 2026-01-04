@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:8
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+      - "27018:27018"
+      - "27019:27019"
+    volumes:
+      - mongo-data:/data/db
+
+  parse:
+    build: ./parse-server
+    container_name: parse-server
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    ports:
+      - "1337:1337"   # Parse Server
+      - "4040:4040"   # Parse Server + Dashboard
+      - "9229:9229"   # Node.js debugger
+    volumes:
+          - ./cloud:/app/cloud:ro
+          - ./logs:/app/logs:rw
+
+volumes:
+  mongo-data:
