@@ -7,6 +7,7 @@ node --inspect=0.0.0.0:9229 \
   --appId APPLICATION_ID \
   --clientKey CLIENT_KEY \
   --masterKey MASTER_KEY \
+  --allowClientClassCreation true \
   --databaseURI mongodb://mongo:27017/test \
   --cloud /app/cloud/main.js \
   --masterKeyIps "0.0.0.0/0,::0" \
