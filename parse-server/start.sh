@@ -6,6 +6,7 @@ node --inspect=0.0.0.0:9229 \
   $(which parse-server) \
   --appId APPLICATION_ID \
   --clientKey CLIENT_KEY \
+  --javascriptKey JAVASCRIPT_KEY \
   --masterKey MASTER_KEY \
   --allowClientClassCreation true \
   --databaseURI mongodb://mongo:27017/test \
